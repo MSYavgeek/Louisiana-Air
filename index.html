@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Louisiana Air | Fly Your Way</title>
+    <title>Louisiana Air</title>
 
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #f5f3f8;
             color: #222;
         }
 
         header {
             background: #5f259f;
             color: white;
-            padding: 20px 50px;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,74 +40,143 @@
         }
 
         .hero {
-            background: #40186f;
+            background: linear-gradient(135deg, #5f259f, #32145c);
             color: white;
+            padding: 70px 25px;
             text-align: center;
-            padding: 70px 20px;
         }
 
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .hero p {
             font-size: 20px;
+            margin-bottom: 35px;
         }
 
-        .booking {
+        .search-box {
             background: white;
-            width: 80%;
-            max-width: 900px;
-            margin: -35px auto 40px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .booking h2 {
-            margin-top: 0;
+            color: #222;
+            max-width: 950px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
 
         .fields {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        input {
-            padding: 14px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+        .field {
             flex: 1;
             min-width: 180px;
+            text-align: left;
+        }
+
+        .field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
         }
 
         button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
             background: #5f259f;
             color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 6px;
+            font-size: 17px;
             font-weight: bold;
             cursor: pointer;
         }
 
         button:hover {
-            background: #40186f;
+            background: #471b79;
         }
 
-        .section {
+        #results {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .flight {
+            background: #f4f1f8;
+            padding: 18px;
+            margin-top: 12px;
+            border-radius: 10px;
+            border-left: 5px solid #5f259f;
+        }
+
+        section {
+            padding: 55px 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section h2 {
             text-align: center;
-            padding: 30px;
+            color: #5f259f;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #5f259f;
+            margin-bottom: 10px;
         }
 
         footer {
-            background: #222;
+            background: #24113b;
             color: white;
             text-align: center;
-            padding: 25px;
-            margin-top: 40px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -111,39 +184,154 @@
 <body>
 
 <header>
-    <div class="logo">Louisiana Air</div>
+    <div class="logo">LOUISIANA AIR</div>
 
     <nav>
-        <a href="#">Book</a>
-        <a href="#">Manage Trip</a>
-        <a href="#">Destinations</a>
+        <a href="#flights">Flights</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#fleet">Fleet</a>
     </nav>
 </header>
 
-<section class="hero">
+<div class="hero">
     <h1>Fly Louisiana Air</h1>
-    <p>Your journey starts here.</p>
-</section>
+    <p>Connecting Louisiana to the world.</p>
 
-<section class="booking">
-    <h2>Book a Flight</h2>
+    <div class="search-box" id="flights">
+        <h2>Search Flights</h2>
 
-    <div class="fields">
-        <input type="text" placeholder="From (MSY)">
-        <input type="text" placeholder="To">
-        <input type="date">
-        <button>Search Flights</button>
+        <div class="fields">
+
+            <div class="field">
+                <label>From</label>
+                <input type="text" id="from" placeholder="Airport code (e.g. MSY)">
+            </div>
+
+            <div class="field">
+                <label>To</label>
+                <input type="text" id="to" placeholder="Airport code (e.g. JFK)">
+            </div>
+
+            <div class="field">
+                <label>Date</label>
+                <input type="date" id="date">
+            </div>
+
+            <div class="field">
+                <label>Passengers</label>
+                <select id="passengers">
+                    <option>1 Passenger</option>
+                    <option>2 Passengers</option>
+                    <option>3 Passengers</option>
+                    <option>4 Passengers</option>
+                    <option>5 Passengers</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button onclick="searchFlights()">Search Flights</button>
+
+        <div id="results"></div>
+    </div>
+</div>
+
+<section id="destinations">
+    <h2>Popular Destinations</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>New York</h3>
+            <p>Fly from New Orleans to JFK.</p>
+        </div>
+
+        <div class="card">
+            <h3>Los Angeles</h3>
+            <p>Connect Louisiana with the West Coast.</p>
+        </div>
+
+        <div class="card">
+            <h3>Sydney</h3>
+            <p>Long-haul service from New Orleans.</p>
+        </div>
     </div>
 </section>
 
-<section class="section">
-    <h2>Welcome aboard Louisiana Air</h2>
-    <p>Connecting Louisiana with destinations around the world.</p>
+<section id="fleet">
+    <h2>Our Fleet</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Airbus A220-300</h3>
+            <p>Efficient aircraft for regional and domestic routes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Airbus A321XLR</h3>
+            <p>Long-range narrowbody service.</p>
+        </div>
+
+        <div class="card">
+            <h3>Airbus A350</h3>
+            <p>Our long-haul aircraft for flights around the world.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
-    © 2026 Louisiana Air · All Rights Reserved
+    <p>© 2026 Louisiana Air</p>
+    <p>New Orleans, Louisiana • MSY</p>
 </footer>
+
+<script>
+
+function searchFlights() {
+
+    const from = document.getElementById("from").value.toUpperCase().trim();
+    const to = document.getElementById("to").value.toUpperCase().trim();
+    const date = document.getElementById("date").value;
+
+    const results = document.getElementById("results");
+
+    if (!from || !to || !date) {
+        results.innerHTML = "<p>Please enter your departure airport, destination, and date.</p>";
+        return;
+    }
+
+    if (from === "MSY" && to === "JFK") {
+
+        results.innerHTML = `
+            <div class="flight">
+                <strong>Louisiana Air LA101</strong><br>
+                New Orleans (MSY) → New York (JFK)<br>
+                Departure: 8:30 AM<br>
+                Aircraft: Airbus A321neo
+            </div>
+        `;
+
+    } else if (from === "MSY" && to === "LAX") {
+
+        results.innerHTML = `
+            <div class="flight">
+                <strong>Louisiana Air LA205</strong><br>
+                New Orleans (MSY) → Los Angeles (LAX)<br>
+                Departure: 10:15 AM<br>
+                Aircraft: Airbus A321XLR
+            </div>
+        `;
+
+    } else {
+
+        results.innerHTML = `
+            <div class="flight">
+                <strong>No flights found</strong><br>
+                We couldn't find a Louisiana Air flight for ${from} → ${to} on ${date}.
+            </div>
+        `;
+    }
+}
+
+</script>
 
 </body>
 </html>
