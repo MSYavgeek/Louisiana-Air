@@ -3,35 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louisiana Air</title>
+
+    <title>Louisiana Air | Fly Your Way</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #5f259f;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: #40186f;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .booking {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            margin: -35px auto 40px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .booking h2 {
+            margin-top: 0;
+        }
+
+        .fields {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        input {
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        button {
+            background: #5f259f;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #40186f;
+        }
+
+        .section {
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Louisiana Air</h1>
+<header>
+    <div class="logo">Louisiana Air</div>
 
-    <p>Welcome aboard Louisiana Air!</p>
+    <nav>
+        <a href="#">Book</a>
+        <a href="#">Manage Trip</a>
+        <a href="#">Destinations</a>
+    </nav>
+</header>
 
+<section class="hero">
+    <h1>Fly Louisiana Air</h1>
+    <p>Your journey starts here.</p>
+</section>
+
+<section class="booking">
     <h2>Book a Flight</h2>
 
-    <form>
-        <label for="from">From:</label>
-        <input type="text" id="from" placeholder="MSY">
+    <div class="fields">
+        <input type="text" placeholder="From (MSY)">
+        <input type="text" placeholder="To">
+        <input type="date">
+        <button>Search Flights</button>
+    </div>
+</section>
 
-        <br><br>
+<section class="section">
+    <h2>Welcome aboard Louisiana Air</h2>
+    <p>Connecting Louisiana with destinations around the world.</p>
+</section>
 
-        <label for="to">To:</label>
-        <input type="text" id="to" placeholder="JFK">
-
-        <br><br>
-
-        <label for="date">Departure:</label>
-        <input type="date" id="date">
-
-        <br><br>
-
-        <button type="submit">Search Flights</button>
-    </form>
+<footer>
+    © 2026 Louisiana Air · All Rights Reserved
+</footer>
 
 </body>
 </html>
